@@ -1,0 +1,6 @@
+[submodule "TL_Graphics"]
+	path = TL_Graphics
+	url = https://github.com/ajwlukas/TL_Graphics.git
+[submodule "TL_GraphicsSample"]
+	path = TL_GraphicsSample
+	url = https://github.com/ajwlukas/TL_GraphicsSample.git
