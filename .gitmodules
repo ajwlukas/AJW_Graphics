@@ -4,3 +4,9 @@
 [submodule "TL_GraphicsSample"]
 	path = TL_GraphicsSample
 	url = https://github.com/ajwlukas/TL_GraphicsSample.git
+[submodule "jw_Input"]
+	path = jw_Input
+	url = https://github.com/ajwlukas/jw_Input.git
+[submodule "jw_Property"]
+	path = jw_Property
+	url = https://github.com/ajwlukas/jw_Property.git
