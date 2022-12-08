@@ -1,2 +1,4 @@
 TL_FBXLibrary/FBX_debug/libfbxsdk-md.lib filter=lfs diff=lfs merge=lfs -text
 TL_FBXLibrary/FBX_debug/libfbxsdk-mt.lib filter=lfs diff=lfs merge=lfs -text
+TL_FBXLibrary/FBX_debug/libfbxsdk-md.lib filter=lfs diff=lfs merge=lfs -text
+TL_FBXLibrary/FBX_debug/libfbxsdk-mt.lib filter=lfs diff=lfs merge=lfs -text
