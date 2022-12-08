@@ -1,8 +1,9 @@
 ﻿#pragma once
 
-#include "Common_typedef.h"
+#include "Common/Common_typedef.h"
+#include <Windows.h>
 
-class COMMON_API DebugHelper
+class DebugHelper
 {
 public:
     /**

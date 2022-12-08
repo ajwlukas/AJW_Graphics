@@ -5,7 +5,7 @@
 template <typename ... Args>
 tstring StringHelper::Format(const tstring& _format, Args ... _args)
 {
-    return ToString(_format.c_str(), _args ...);
+    return ToTString(_format.c_str(), _args ...);
 }
 
 template <typename ... Args>

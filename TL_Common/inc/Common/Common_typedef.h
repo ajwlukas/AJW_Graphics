@@ -1,7 +1,5 @@
 ﻿#pragma once
 
-#include "Common/internal/dll.h"
-
 #include <basetsd.h>
 
 /*

@@ -41,17 +41,18 @@ static constexpr unsigned MaxExtension = 256;    /* max. length of extension com
 #ifdef _DEBUG
 #define MessageBoxRet(ret, msg, type) auto ret = MessageBoxA(NULL, msg, "Assert", type);
 #define DebugMessageBox(msg) { MessageBoxA(NULL, msg, "Assert", MB_OK); }
-#define AssertMessageBox(val, msg) if(val) { MessageBoxA(NULL, msg, "Assert", MB_OK); DebugBreak(); }
+#define AssertMessageBox(val, msg) if(!(val)) { MessageBoxA(NULL, msg, "Assert", MB_OK); DebugBreak(); }
 #define FatalError(msg){ MessageBoxA(NULL, msg, "Fatal error", MB_OK); DebugBreak(); assert(false); }
 //#define CheckCast(type, val) if()  
 #define NullCheck(val) { if(val == nullptr) { MessageBoxA(NULL, TO_STRING(val is null), "NullCheck Message", MB_OK); DebugBreak(); } }
 #define SAFE_RELEASE(x) if(x != nullptr) { x->release(); x = nullptr; }
-#define SAFE_DELTE(x) if(x != nullptr) { delete x; x = nullptr; }
+#define SAFE_DELETE(x) if(x != nullptr) { delete x; x = nullptr; }
 #define SAFE_INSERT_MAP(val, container, key) auto item = container.find(key);\
-if (item == container.end())\
-    AssertMessageBox(false, TO_STRING(key insert failed))\
+if (item == container.end()){ \
+    AssertMessageBox(false, TO_STRING(key insert failed)); }\
 else {\
-    container.insert(std::make_pair(key, val)); }
+    container.insert(std::make_pair(key, val));\
+}
 
 #define SAFE_DELETE_MAP(container, key) auto item = container.find(key);\
 if (item != container.end())\
@@ -65,14 +66,15 @@ else\
 #else
 #define DebugMessageBox(msg);
 #define AssertMessageBox(val, msg) assert(val)
-#define NullCheck(val) if(val == nullptr) { return false; }
+#define NullCheck(val) if(val == nullptr) { assert(false); }
 #define SAFE_RELEASE(x) x->release();
-#define SAFE_DELTE(x) { delete x; x = nullptr; }
+#define SAFE_DELETE(x) { delete x; x = nullptr; }
 #define SAFE_INSERT_MAP(val, container, key) auto item = container.find(key);\
-if (item == container.end())\
-    AssertMessageBox(false, TO_STRING(key insert failed))\
+if (item == container.end()){ \
+    AssertMessageBox(false, TO_STRING(key insert failed)); }\
 else {\
-    container.insert(std::make_pair(key, val)); }
+    container.insert(std::make_pair(key, val));\
+}
 
 #define SAFE_DELETE_MAP(container, key) auto item = container.find(key);\
 if (item != container.end())\

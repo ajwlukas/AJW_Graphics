@@ -30,19 +30,10 @@
     <ClInclude Include="inc\Common\DebugHelper.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Common\Common_type.h">
+    <ClInclude Include="inc\Common\Common_Windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Common\Common_pch_Windows.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Common_pch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Common\Common_pch_cpp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Common\internal\dll.h">
+    <ClInclude Include="inc\Common\Common_cpp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Common\SingletonInstance.h">
@@ -54,6 +45,24 @@
     <ClInclude Include="inc\Math\TL_Math.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Struct\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Common_min.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Common\Common_type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Common\ErrorCallback.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Struct\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Common\SystemTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="inc\Common\StringHelper.inl" />
@@ -62,8 +71,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Common_pch.cpp">
+    <ClCompile Include="src\Math\TL_Math.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="natvis\Vector3.natvis" />
+    <Natvis Include="natvis\Vector4.natvis" />
+    <Natvis Include="natvis\Vector2.natvis" />
+    <Natvis Include="natvis\Matrix.natvis" />
   </ItemGroup>
 </Project>
