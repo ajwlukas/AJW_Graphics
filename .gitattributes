@@ -1,4 +1,2 @@
-# Auto detect text files and perform LF normalization
-* text=auto
-TL_FBXLibrary/FBX_debug/libfbxsdk-md.lib filter=lfs diff=lfs merge=lfs -text
-TL_FBXLibrary/FBX_debug/libfbxsdk-mt.lib filter=lfs diff=lfs merge=lfs -text
+TL_FBXLibrary/lib/FBX_debug/libfbxsdk-md.lib filter=lfs diff=lfs merge=lfs -text
+TL_FBXLibrary/lib/FBX_debug/libfbxsdk-mt.lib filter=lfs diff=lfs merge=lfs -text
