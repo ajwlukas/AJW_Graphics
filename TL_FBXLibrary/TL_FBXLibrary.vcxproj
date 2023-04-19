@@ -105,12 +105,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBX_LIBRARY_BUILD_DLL;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)Include\fbxsdk;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libfbxsdk-md.lib;libxml2-md.lib;zlib-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(projectDir)lib\Boost_debug;$(projectDir)lib\FBX_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /E /S /Y /R "$(OutDir)*.dll" "$(OutputPath)..\_Game\*"
@@ -134,7 +136,8 @@ xcopy /E /S /Y /R "$(OutDir)*.pdb" "$(OutputPath)..\_Test\*"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBX_LIBRARY_BUILD_DLL;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)Include\fbxsdk;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,6 +145,7 @@ xcopy /E /S /Y /R "$(OutDir)*.pdb" "$(OutputPath)..\_Test\*"</Command>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libfbxsdk-md.lib;libxml2-md.lib;zlib-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(projectDir)lib\Boost_release;$(projectDir)lib\FBX_release</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /E /S /Y /R "$(OutDir)*.dll" "$(OutputPath)..\_Game\*"
@@ -163,13 +167,13 @@ xcopy /E /S /Y /R "$(OutDir)*.pdb" "$(OutputPath)..\_Test\*"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBX_LIBRARY_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)Include\fbxsdk;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(projectDir)lib\FBX_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(projectDir)lib\Boost_debug;$(projectDir)lib\FBX_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>libfbxsdk-md.lib;libxml2-md.lib;zlib-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -194,14 +198,15 @@ xcopy /E /S /Y /R "$(OutDir)*.pdb" "$(OutputPath)..\_Test\*"</Command>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>FBX_LIBRARY_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(ProjectDir)Include\fbxsdk;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)TL_Common\inc</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(projectDir)lib\FBX_release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(projectDir)lib\Boost_release;$(projectDir)lib\FBX_release</AdditionalLibraryDirectories>
       <AdditionalDependencies>libfbxsdk-md.lib;libxml2-md.lib;zlib-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
@@ -219,14 +224,16 @@ xcopy /E /S /Y /R "$(OutDir)*.pdb" "$(OutputPath)..\_Test\*"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Serializable.h" />
     <ClInclude Include="src\FBXLibrary\FileInfo.h" />
     <ClInclude Include="inc\FBXLibrary\dll.h" />
     <ClInclude Include="inc\FBXLibrary\FBXModelLoader.h" />
-    <ClInclude Include="src\FBXLibrary\FBXLibrary_Internal.h" />
+    <ClInclude Include="src\FBXLibrary\FBXLibraryInternal.h" />
     <ClInclude Include="inc\FBXLibrary\FBXParserData.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\FBXLibrary\FBXLibrary_Internal.cpp" />
+    <ClCompile Include="Serializable.cpp" />
+    <ClCompile Include="src\FBXLibrary\FBXLibraryInternal.cpp" />
     <ClCompile Include="src\FBXLibrary\FBXModelLoader.cpp" />
   </ItemGroup>
   <ItemGroup>

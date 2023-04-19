@@ -1,4 +1,4 @@
-﻿#pragma once
+﻿ #pragma once
 
 #include "FBXLibrary/dll.h"
 #include "Common.h"
@@ -7,9 +7,10 @@
 namespace TL_FBXLibrary
 {
 	struct FBXNodeInfo;
+	struct FBXPrefab;
 }
 
-class FBXLibrary_Internal;
+class FBXLibraryInternal;
 
 namespace TL_FBXLibrary
 {
@@ -23,19 +24,26 @@ namespace TL_FBXLibrary
 		bool Init();
 		bool Release();
 
-		bool Load(tstring filename); 
+		bool Load(const tstring filename); 
+		bool Load(const std::string filename); 
 		bool AllLoad(); // 경로에 있는 모든 파일을 읽어오는 함수
+		void FbxSerialize(const tstring filename);
+		bool BinaryLoad(tstring filename);
+		bool BinaryFolderLoad(tstring filename);
 
-		void FBXConvertOptimize();
+		void FbxConvertOptimize();
 
-		std::vector<TL_FBXLibrary::FBXNodeInfo*> GetMeshList();
+		std::vector<TL_FBXLibrary::FBXNodeInfo> GetMeshList();
+
 		int GetObjMeshListSize();
-		// Get vertex, index info
-		int GetVertexSize(FBXNodeInfo* pNodeInfo);
-		int GetIndexSize(FBXNodeInfo* pNodeInfo);
+		
+		TL_FBXLibrary::FBXPrefab* GetPrefab();
+
+		void TextSerialize(); 
+		void BinarySerialize();
 
 	private:
-		FBXLibrary_Internal* m_FBXLoader;
+		FBXLibraryInternal* m_FBXLoader;
 	};
 }
 

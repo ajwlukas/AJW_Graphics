@@ -24,10 +24,13 @@
     <ClInclude Include="inc\FBXLibrary\dll.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\FBXLibrary\FBXLibrary_Internal.h">
+    <ClInclude Include="src\FBXLibrary\FBXLibraryInternal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\FBXLibrary\FileInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +38,10 @@
     <ClCompile Include="src\FBXLibrary\FBXModelLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\FBXLibrary\FBXLibrary_Internal.cpp">
+    <ClCompile Include="src\FBXLibrary\FBXLibraryInternal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Serializable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
