@@ -10,3 +10,6 @@
 [submodule "jw_Property"]
 	path = jw_Property
 	url = https://github.com/ajwlukas/jw_Property.git
+[submodule "jw_Timer"]
+	path = jw_Timer
+	url = https://github.com/ajwlukas/jw_Timer.git
